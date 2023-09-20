@@ -1,1 +1,4 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using Base;
+
+var bootstrap = new Bootstrap();
+bootstrap.StartProgram();
