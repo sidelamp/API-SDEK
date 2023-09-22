@@ -61,6 +61,6 @@ internal abstract class StateBase
         } while (!chars.Any(s => s == key));
 
         Console.WriteLine();
-        return key == 'y' || key == 'д';
+        return key == 'д';
     }
 }
