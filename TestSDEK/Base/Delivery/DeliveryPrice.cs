@@ -9,7 +9,7 @@ public struct Result
     public string? currency { get; set; }
     public double priceByCurrency { get; set; }
     public int percentVAT { get; set; }
-    public Error errors { get; set; }
+    public Error? errors { get; set; }
 }
 
 public struct Error

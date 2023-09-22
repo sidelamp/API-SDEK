@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using Base.Data;
 using Services;
 
@@ -6,7 +5,7 @@ namespace Base.States;
 
 internal class CalcDeliveryState : StateBase
 {
-    private const int KG = 1000;
+    private const int GR = 1000;
     private const int MM = 100;
     private readonly UserData _userData;
     private readonly DeliveryService _deliveryService;
@@ -22,7 +21,7 @@ internal class CalcDeliveryState : StateBase
 
     public override void Enter()
     {
-        int weight = (int)(_userData.weight * KG);
+        int weight = (int)(_userData.weight * GR);
         int width = (int)(_userData.width * MM);
         int height = (int)(_userData.height * MM);
         int length = (int)(_userData.length * MM);
@@ -33,8 +32,8 @@ internal class CalcDeliveryState : StateBase
         Console.WriteLine($"По параметрам {_userData.width}x{_userData.height}x{_userData.length} {_userData.weight}кг");
         Console.WriteLine($"Откуда: {_userData.cityFrom.cityName}, куда: {_userData.cityTo.cityName}");
 
-        if (answer.result.errors.text is not null)
-            Console.WriteLine(answer.result.errors.text);
+        if (answer.result.errors is not null)
+            Console.WriteLine(answer.result.errors.Value.text);
         else
             Console.WriteLine($"Цена составила: {answer.result.price}р.");
 
